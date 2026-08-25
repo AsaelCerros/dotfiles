@@ -46,7 +46,7 @@ Symlink or copy into your home:
         ~/.config/polybar/scripts/
 
 Dependencies: i3, polybar, picom, dex, xss-lock, i3lock, dunst, rofi,
-feh, maim, kitty, btop, JetBrainsMono Nerd Font. Optional: nvidia-smi
-(GPU module), pulsemixer (volume-module right-click mixer).
+feh, maim, kitty, btop, pulsemixer, JetBrainsMono Nerd Font.
+Optional: nvidia-smi (GPU module).
 
 From https://github.com/AsaelCerros/dotfiles

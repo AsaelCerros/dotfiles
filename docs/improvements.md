@@ -73,14 +73,12 @@ Full bar rebuild - see ~/.config/polybar/ (synced to dotfiles repo).
   - Click actions: RAM/CPU -> btop, volume right -> mixer, left-click
     audio output toggles sink, net module tails real /sys counters
 
-## 13. Install pulsemixer for the volume-module right-click  [NOT DONE]
-The pulseaudio module's click-right runs `kitty -e pulsemixer` but the
-binary is not installed, so that one action does nothing. Fix:
-  sudo pacman -S pulsemixer
-(or repoint click-right at pavucontrol/pamix if you prefer another mixer).
+## 13. Install pulsemixer for the volume-module right-click  [DONE 2026-08-25]
+Installed pulsemixer 1.5.1 (sudo pacman -S pulsemixer). Verified:
+`kitty -e pulsemixer` exits 0 and the binary is on PATH for the running
+bar's click-right action (no polybar reload was needed).
 
 ---
 Applied 2026-08-01: #1, #2, #3, #4, #5, #6, #8, #11
-Applied 2026-08-25: #12 (polybar redesign)
-Still open: #7 (xrandr guard), #9 (launcher tidy), #10 (mouse focus),
-            #13 (pulsemixer install)
+Applied 2026-08-25: #12 (polybar redesign), #13 (pulsemixer)
+Still open: #7 (xrandr guard), #9 (launcher tidy), #10 (mouse focus)
