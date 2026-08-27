@@ -36,11 +36,13 @@ Installed maim; screenshots save to ~/Pictures/screenshots/.
   Spotify -> ws3, firefox -> ws2, Thunderbird -> ws4, discord -> ws5
 (Adjust the class/regex to match apps you actually use.)
 
-## 7. Harden the xrandr line (LOW/MEDIUM)  [NOT DONE]
-`exec_always xrandr ...` re-applies the exact monitor layout on every
-reload/restart. Brittle if you dock/undock or change monitors; can flicker
-on each reload. Options: guard it, or use a script that checks connected
-outputs first, or make it a one-shot exec.
+## 7. Harden the xrandr line (LOW/MEDIUM)  [DONE 2026-08-26]
+Replaced the single atomic `exec_always xrandr ...` with a guarded script,
+~/.config/i3/scripts/set-displays.sh (synced to dotfiles i3/scripts/):
+applies each output independently and skips absent ones silently.
+Real bug this fixes (caught 2026-08-26): HDMI-0 unplugged made the whole
+atomic xrandr command abort, so DP-4 never got its native mode and fell
+back to 1920x1080@60 — making the unchanged 13px polybar font look huge.
 
 ## 8. Outer / smart gaps  [DONE 2026-08-01]
   gaps outer 5
@@ -81,4 +83,5 @@ bar's click-right action (no polybar reload was needed).
 ---
 Applied 2026-08-01: #1, #2, #3, #4, #5, #6, #8, #11
 Applied 2026-08-25: #12 (polybar redesign), #13 (pulsemixer)
-Still open: #7 (xrandr guard), #9 (launcher tidy), #10 (mouse focus)
+Applied 2026-08-26: #7 (set-displays.sh per-output xrandr guard)
+Still open: #9 (launcher tidy), #10 (mouse focus)
